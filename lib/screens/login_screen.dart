@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/helpers/local_assets_helper.dart';
+import 'package:shop_app/screens/sign%20option/sign_in.dart';
+import 'package:shop_app/screens/sign%20option/sign_up.dart';
 import 'package:shop_app/styles/app_colors.dart';
 import 'package:shop_app/styles/app_text_style.dart';
 import 'package:shop_app/widgets/custom_button.dart';
@@ -46,19 +48,18 @@ class LoginScreen extends StatelessWidget {
                 ImageContainer(imagePath: LocalAssetsHelper.sixthAsset),
               ],
             ),
-            SizedBox(height: 0,),
+            SizedBox(height: 0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomButton(ontap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUp(),));
+                }, textButton: "Sign Up"),
+                CustomButton(ontap: () {
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignIn(),));
 
-              },
-               textButton: "Sign Up"),
-               CustomButton(ontap: () {
-                 
-               }, textButton: "Sign In")
-               ],
-
+                }, textButton: "Sign In"),
+              ],
             ),
           ],
         ),
