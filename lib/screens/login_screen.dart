@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/helpers/local_assets_helper.dart';
+import 'package:shop_app/helpers/network_assets_helper.dart';
 import 'package:shop_app/screens/sign%20option/sign_in.dart';
 import 'package:shop_app/screens/sign%20option/sign_up.dart';
 import 'package:shop_app/styles/app_colors.dart';
@@ -24,7 +25,7 @@ class LoginScreen extends StatelessWidget {
         ),
 
         child: Column(
-          spacing: 10,
+          spacing: 25,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
 
@@ -33,32 +34,43 @@ class LoginScreen extends StatelessWidget {
               "ShopCraft",
               style: AppTextStyle.bold22.copyWith(
                 color: AppColors.white,
-                fontSize: 30,
+                fontSize: 40,
               ),
             ),
             Text(
               "Your Premium Shopping Experience",
               style: AppTextStyle.regular14.copyWith(color: AppColors.white),
             ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ImageContainer(imagePath: LocalAssetsHelper.firstAsset),
-                ImageContainer(imagePath: LocalAssetsHelper.sixthAsset),
-              ],
+            // SizedBox(height: 5),
+            ImageContainer(imagePath: LocalAssetsHelper.firstAsset),
+            ImageContainer(
+              imagePath: NetworkAssetsHelper.firstNetworkImage,
             ),
-            SizedBox(height: 0),
+            SizedBox(height: 5),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              spacing: 15,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomButton(ontap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUp(),));
-                }, textButton: "Sign Up"),
-                CustomButton(ontap: () {
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignIn(),));
-
-                }, textButton: "Sign In"),
+                CustomButton(
+                  ontap: () {
+                    Navigator.of(
+                      context,
+                    ).push(MaterialPageRoute(builder: (context) => SignUp()));
+                   },textWidget: Text("Sign up" ,style: AppTextStyle.regular20.copyWith(
+                    color: AppColors.deepPurple
+                   ),), backgroundColor: AppColors.white,
+                 
+                ),
+                CustomButton(
+                  ontap: () {
+                    Navigator.of(
+                      context,
+                    ).push(MaterialPageRoute(builder: (context) => SignIn()));
+                   },textWidget: Text("Sign In" ,style: AppTextStyle.regular20.copyWith(
+                    color: AppColors.deepPurple
+                   ),), backgroundColor: AppColors.white,
+                  
+                ),
               ],
             ),
           ],

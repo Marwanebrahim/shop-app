@@ -7,20 +7,19 @@ class ImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
-
-      width: 150,
+      height: 220,
+      width: 220,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(25),
-        boxShadow:[ BoxShadow(
-          blurRadius: 10,
-          color: AppColors.black
-        )],
-        image: DecorationImage(image: AssetImage(imagePath,),fit: BoxFit.fill)
+        boxShadow: [BoxShadow(blurRadius: 10, color: AppColors.black)],
+        image: DecorationImage(
+          image: imagePath.startsWith("http")
+              ? NetworkImage(imagePath)
+              : AssetImage(imagePath),
+          fit: BoxFit.fill,
+        ),
       ),
-
-      
     );
   }
 }

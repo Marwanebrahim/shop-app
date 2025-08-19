@@ -1,10 +1,133 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/styles/app_colors.dart';
+import 'package:shop_app/styles/app_text_style.dart';
+import 'package:shop_app/widgets/custom_button.dart';
+import 'package:shop_app/widgets/custom_text_field.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
   @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  final GlobalKey<FormState> _formKey = GlobalKey();
+  TextEditingController textController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
+      ),
+      body: Form(
+        key: _formKey,
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            gradient: AppColors.gradientBackGroundDecoration,
+          ),
+          child: Center(
+            child: Container(
+              height: 400,
+              width: 300,
+              decoration: _boxDecoration(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 5,
+                  children: [
+                    Center(
+                      child: Text(
+                        "Welcome Back",
+                        style: AppTextStyle.bold22.copyWith(
+                          color: AppColors.deepPurple,
+                          fontSize: 26,
+                        ),
+                      ),
+                    ),
+
+                    Center(
+                      child: Text(
+                        "Sign in to ShopCraft",
+                        style: AppTextStyle.regular14,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text("Email", style: AppTextStyle.bold14),
+                    CustomTextField(
+                      hintText: "Enter your Email",
+                      textController: textController,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return "Email is required";
+                        }
+
+                        if (!value.contains('@')) {
+                          return "Please include an '@' in the emain address";
+                        }
+                        return null;
+                      },
+                      hidden: false,
+                    ),
+                    SizedBox(height: 5),
+                    Text("Password", style: AppTextStyle.bold14),
+
+                    CustomTextField(
+                      hintText: "Enter your password",
+                      textController: passController,
+                      validator: (value) {
+                        if (value == null) {
+                          return "Password is required";
+                        }
+                        if (value.length < 6) {
+                          return "Password must be at least 6 characters";
+                        }
+                        return null;
+                      },
+                      hidden: true,
+                    ),
+                    SizedBox(height: 10),
+                    Center(
+                      child: CustomButton(
+                        ontap: () {
+                          if (! _formKey.currentState!.validate()) {
+                            return;
+                          }
+
+                          
+                        },
+                        textWidget: Text(
+                          "Sign In",
+                          style: AppTextStyle.bold16.copyWith(
+                            color: AppColors.white,
+                          ),
+                        ),
+                        backgroundColor: AppColors.deepPurple,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  BoxDecoration _boxDecoration() {
+    return BoxDecoration(
+      color: AppColors.white,
+      borderRadius: BorderRadius.circular(15),
+      boxShadow: [BoxShadow(color: AppColors.black, blurRadius: 15)],
+    );
   }
 }

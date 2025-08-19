@@ -13,5 +13,7 @@ abstract class AppColors {
   static const Color black =Color.fromARGB(161, 0, 0, 0);
   static const Color transparent =Colors.transparent;
   static const Color grey =Colors.grey;
-  static const Color deepPurple =Colors.deepPurple;
+  static const Color deepPurple =Color.fromARGB(220, 124, 71, 216);
+  static const Color red =Colors.red;
+
 }
