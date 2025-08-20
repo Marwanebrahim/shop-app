@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/home_screen.dart';
 import 'package:shop_app/styles/app_colors.dart';
 import 'package:shop_app/styles/app_text_style.dart';
+import 'package:shop_app/widgets/custom_alert_dialog.dart';
 import 'package:shop_app/widgets/custom_button.dart';
 import 'package:shop_app/widgets/custom_text_field.dart';
 
@@ -125,7 +127,8 @@ class _SignUpState extends State<SignUp> {
                         if (value == null || value.isEmpty) {
                           return "Please confirm your password";
                         }
-                        if (value != passController) {
+                        if (confirmPassController.value !=
+                            passController.value) {
                           return "Passwords do not match";
                         }
                         return null;
@@ -139,6 +142,7 @@ class _SignUpState extends State<SignUp> {
                           if (!_formKey.currentState!.validate()) {
                             return;
                           }
+                          _showAlertDialog(context);
                         },
                         textWidget: Text(
                           "Create Account",
@@ -155,6 +159,34 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Future<dynamic> _showAlertDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) => CustomAlertDialog(
+        title: Text(
+          "Success!",
+          style: AppTextStyle.bold22.copyWith(color: AppColors.green),
+          textAlign: TextAlign.center,
+        ),
+        content: Text(
+          "Account created successfully",
+          style: AppTextStyle.bold18.copyWith(color: AppColors.grey),
+          textAlign: TextAlign.center,
+        ),
+        ontap: () {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+          );
+        },
+        buttonText: Text(
+          "close",
+          style: AppTextStyle.regular16.copyWith(color: AppColors.white),
+        ),
+        buttonBachground: AppColors.green,
       ),
     );
   }

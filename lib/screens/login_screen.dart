@@ -43,9 +43,7 @@ class LoginScreen extends StatelessWidget {
             ),
             // SizedBox(height: 5),
             ImageContainer(imagePath: LocalAssetsHelper.firstAsset),
-            ImageContainer(
-              imagePath: NetworkAssetsHelper.firstNetworkImage,
-            ),
+            ImageContainer(imagePath: NetworkAssetsHelper.firstNetworkImage),
             SizedBox(height: 5),
             Row(
               spacing: 15,
@@ -56,20 +54,28 @@ class LoginScreen extends StatelessWidget {
                     Navigator.of(
                       context,
                     ).push(MaterialPageRoute(builder: (context) => SignUp()));
-                   },textWidget: Text("Sign up" ,style: AppTextStyle.regular20.copyWith(
-                    color: AppColors.deepPurple
-                   ),), backgroundColor: AppColors.white,
-                 
+                  },
+                  textWidget: Text(
+                    "Sign up",
+                    style: AppTextStyle.regular20.copyWith(
+                      color: AppColors.deepPurple,
+                    ),
+                  ),
+                  backgroundColor: AppColors.white,
                 ),
                 CustomButton(
                   ontap: () {
                     Navigator.of(
                       context,
                     ).push(MaterialPageRoute(builder: (context) => SignIn()));
-                   },textWidget: Text("Sign In" ,style: AppTextStyle.regular20.copyWith(
-                    color: AppColors.deepPurple
-                   ),), backgroundColor: AppColors.white,
-                  
+                  },
+                  textWidget: Text(
+                    "Sign In",
+                    style: AppTextStyle.regular20.copyWith(
+                      color: AppColors.deepPurple,
+                    ),
+                  ),
+                  backgroundColor: AppColors.white,
                 ),
               ],
             ),

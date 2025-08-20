@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/styles/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton( {super.key, required this.ontap, required this.textWidget, required this.backgroundColor});
+  const CustomButton({
+    super.key,
+    required this.ontap,
+    required this.textWidget,
+    required this.backgroundColor,
+  });
   final Color backgroundColor;
   final VoidCallback ontap;
   final Widget textWidget;
