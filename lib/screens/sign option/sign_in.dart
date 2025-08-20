@@ -34,11 +34,11 @@ class _SignInState extends State<SignIn> {
           ),
           child: Center(
             child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               height: 400,
               width: 300,
               decoration: _boxDecoration(),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +84,7 @@ class _SignInState extends State<SignIn> {
                       hintText: "Enter your password",
                       textController: passController,
                       validator: (value) {
-                        if (value == null) {
+                        if (value == null || value.isEmpty) {
                           return "Password is required";
                         }
                         if (value.length < 6) {
@@ -98,11 +98,9 @@ class _SignInState extends State<SignIn> {
                     Center(
                       child: CustomButton(
                         ontap: () {
-                          if (! _formKey.currentState!.validate()) {
+                          if (!_formKey.currentState!.validate()) {
                             return;
                           }
-
-                          
                         },
                         textWidget: Text(
                           "Sign In",
