@@ -1,3 +1,5 @@
+import 'package:shop_app/helpers/network_assets_helper.dart';
+
 abstract class LocalAssetsHelper {
   static const String firstAsset = "assets/i1.jpg";
   static const String secondAsset = "assets/i2.jpg";
@@ -5,4 +7,15 @@ abstract class LocalAssetsHelper {
   static const String fourthAsset = "assets/i4.jpg";
   static const String fifthAsset = "assets/i5.jpg";
   static const String sixthAsset = "assets/i6.jpg";
+
+  static List<String> mixedImages = [
+    thirdAsset,
+    fourthAsset,
+    fifthAsset,
+    firstAsset,
+    NetworkAssetsHelper.firstNetworkImage,
+    NetworkAssetsHelper.thirdNetworkImage,
+  ];
+
+
 }

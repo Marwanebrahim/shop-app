@@ -9,6 +9,14 @@ abstract class AppColors {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+  static const Gradient gradientAppBarDecoration = LinearGradient(
+    colors: [
+        Color.fromARGB(255, 27, 137, 227),
+      Color.fromARGB(208, 146, 22, 168),
+    ],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+  );
   static const Color white = Colors.white;
   static const Color black = Color.fromARGB(161, 0, 0, 0);
   static const Color transparent = Colors.transparent;

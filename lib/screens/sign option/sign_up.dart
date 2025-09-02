@@ -20,6 +20,15 @@ class _SignUpState extends State<SignUp> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
+
+  @override
+  void dispose() {
+    fullNameController.dispose();
+    emailController.dispose();
+    passController.dispose();
+    confirmPassController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -165,6 +174,7 @@ class _SignUpState extends State<SignUp> {
 
   Future<dynamic> _showAlertDialog(BuildContext context) {
     return showDialog(
+      barrierDismissible: true,
       context: context,
       builder: (context) => CustomAlertDialog(
         title: Text(
@@ -178,7 +188,8 @@ class _SignUpState extends State<SignUp> {
           textAlign: TextAlign.center,
         ),
         ontap: () {
-          Navigator.of(context).pushReplacement(
+          Navigator.pushReplacement(
+            context,
             MaterialPageRoute(builder: (context) => HomeScreen()),
           );
         },

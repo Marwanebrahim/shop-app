@@ -18,6 +18,13 @@ class _SignInState extends State<SignIn> {
   TextEditingController textController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
+@override
+  void dispose() {
+    textController.dispose();
+    passController.dispose();
+    super.dispose();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,6 +140,7 @@ class _SignInState extends State<SignIn> {
 
   Future<dynamic> _showAlertDialog(BuildContext context) {
     return showDialog(
+      barrierDismissible: true,
       context: context,
       builder: (context) => CustomAlertDialog(
         title: Text(
@@ -146,7 +154,8 @@ class _SignInState extends State<SignIn> {
           textAlign: TextAlign.center,
         ),
         ontap: () {
-          Navigator.of(context).pushReplacement(
+          Navigator.pushReplacement(
+            context,
             MaterialPageRoute(builder: (context) => HomeScreen()),
           );
         },
