@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/home_screen.dart';
 import 'package:shop_app/styles/app_colors.dart';
@@ -29,6 +30,7 @@ class _SignUpState extends State<SignUp> {
     confirmPassController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,28 +65,28 @@ class _SignUpState extends State<SignUp> {
                   children: [
                     Center(
                       child: Text(
-                        "Create Account",
+                        "sign up1",
                         style: AppTextStyle.bold22.copyWith(
                           color: AppColors.deepPurple,
                           fontSize: 26,
                         ),
-                      ),
+                      ).tr(),
                     ),
 
                     Center(
                       child: Text(
-                        "Join ShopCraft today",
+                        "sign up2",
                         style: AppTextStyle.regular14,
-                      ),
+                      ).tr(),
                     ),
                     SizedBox(height: 5),
-                    Text("Full Name", style: AppTextStyle.bold14),
+                    Text("sign up3", style: AppTextStyle.bold14).tr(),
                     CustomTextField(
-                      hintText: "Enter your full name",
+                      hintText: "sign up4".tr(),
                       textController: fullNameController,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return "Full name is required";
+                          return "sign up5".tr();
                         }
 
                         return null;
@@ -93,52 +95,52 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 5),
 
-                    Text("Email", style: AppTextStyle.bold14),
+                    Text("sign up6", style: AppTextStyle.bold14).tr(),
                     CustomTextField(
-                      hintText: "Enter your Email",
+                      hintText: "sign up7".tr(),
                       textController: emailController,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return "Email is required";
+                          return "sign up8".tr();
                         }
 
                         if (!value.contains('@')) {
-                          return "Please include an '@' in the emain address";
+                          return "sign up9".tr();
                         }
                         return null;
                       },
                       hidden: false,
                     ),
                     SizedBox(height: 10),
-                    Text("Password", style: AppTextStyle.bold14),
+                    Text("sign up10", style: AppTextStyle.bold14).tr(),
 
                     CustomTextField(
-                      hintText: "Enter your password",
+                      hintText: "sign up11".tr(),
                       textController: passController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Password is required";
+                          return "sign up12".tr();
                         }
                         if (value.length < 6) {
-                          return "Password must be at least 6 characters";
+                          return "sign up13".tr();
                         }
                         return null;
                       },
                       hidden: true,
                     ),
                     SizedBox(height: 5),
-                    Text("Confirm Password", style: AppTextStyle.bold14),
+                    Text("sign up14", style: AppTextStyle.bold14).tr(),
 
                     CustomTextField(
-                      hintText: "Confirm your password",
+                      hintText: "sign up15".tr(),
                       textController: confirmPassController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Please confirm your password";
+                          return "sign up16".tr();
                         }
                         if (confirmPassController.value !=
                             passController.value) {
-                          return "Passwords do not match";
+                          return "sign up17".tr();
                         }
                         return null;
                       },
@@ -154,7 +156,7 @@ class _SignUpState extends State<SignUp> {
                           _showAlertDialog(context);
                         },
                         textWidget: Text(
-                          "Create Account",
+                          "sign up21".tr(),
                           style: AppTextStyle.bold16.copyWith(
                             color: AppColors.white,
                           ),
@@ -178,12 +180,12 @@ class _SignUpState extends State<SignUp> {
       context: context,
       builder: (context) => CustomAlertDialog(
         title: Text(
-          "Success!",
+          "sign up18".tr(),
           style: AppTextStyle.bold22.copyWith(color: AppColors.green),
           textAlign: TextAlign.center,
         ),
         content: Text(
-          "Account created successfully",
+          "sign up19".tr(),
           style: AppTextStyle.bold18.copyWith(color: AppColors.grey),
           textAlign: TextAlign.center,
         ),
@@ -194,7 +196,7 @@ class _SignUpState extends State<SignUp> {
           );
         },
         buttonText: Text(
-          "close",
+          "sign up20".tr(),
           style: AppTextStyle.regular16.copyWith(color: AppColors.white),
         ),
         buttonBachground: AppColors.green,

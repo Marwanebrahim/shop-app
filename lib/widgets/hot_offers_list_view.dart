@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/helpers/uri_helper.dart';
 import 'package:shop_app/styles/app_colors.dart';
@@ -20,10 +21,10 @@ class HotOffersListView extends StatelessWidget {
           width: 300,
           decoration: _getBoxDecoration(),
           child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               spacing: 15,
-            
+
               children: [
                 Expanded(
                   child: Padding(
@@ -34,16 +35,16 @@ class HotOffersListView extends StatelessWidget {
                         Text(
                           UriHelper.mainText[index],
                           style: AppTextStyle.bold20,
-                        ),
+                        ).tr(),
                         Text(
                           UriHelper.subText[index],
                           style: AppTextStyle.regular18,
-                        ),
+                        ).tr(),
                       ],
                     ),
                   ),
                 ),
-            
+
                 Container(
                   height: 50,
                   width: 110,
@@ -54,7 +55,14 @@ class HotOffersListView extends StatelessWidget {
                       BoxShadow(color: AppColors.black, blurRadius: 10),
                     ],
                   ),
-                  child: Center(child: Text(UriHelper.designedText[index] ,style: AppTextStyle.bold16.copyWith(color: AppColors.white),),),
+                  child: Center(
+                    child: Text(
+                      UriHelper.designedText[index],
+                      style: AppTextStyle.bold16.copyWith(
+                        color: AppColors.white,
+                      ),
+                    ).tr(),
+                  ),
                 ),
               ],
             ),

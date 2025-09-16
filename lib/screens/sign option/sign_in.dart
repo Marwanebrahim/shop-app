@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/home_screen.dart';
 import 'package:shop_app/styles/app_colors.dart';
@@ -18,13 +19,13 @@ class _SignInState extends State<SignIn> {
   TextEditingController textController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
-@override
+  @override
   void dispose() {
     textController.dispose();
     passController.dispose();
     super.dispose();
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,49 +55,46 @@ class _SignInState extends State<SignIn> {
                 children: [
                   Center(
                     child: Text(
-                      "Welcome Back",
+                      "sign in1",
                       style: AppTextStyle.bold22.copyWith(
                         color: AppColors.deepPurple,
                         fontSize: 26,
                       ),
-                    ),
+                    ).tr(),
                   ),
 
                   Center(
-                    child: Text(
-                      "Sign in to ShopCraft",
-                      style: AppTextStyle.regular14,
-                    ),
+                    child: Text("sign in2", style: AppTextStyle.regular14).tr(),
                   ),
                   SizedBox(height: 5),
-                  Text("Email", style: AppTextStyle.bold14),
+                  Text("sign in3", style: AppTextStyle.bold14).tr(),
                   CustomTextField(
-                    hintText: "Enter your Email",
+                    hintText: "sign in4".tr(),
                     textController: textController,
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
-                        return "Email is required";
+                        return "sign in5".tr();
                       }
 
                       if (!value.contains('@')) {
-                        return "Please include an '@' in the emain address";
+                        return "sign in6".tr();
                       }
                       return null;
                     },
                     hidden: false,
                   ),
                   SizedBox(height: 5),
-                  Text("Password", style: AppTextStyle.bold14),
+                  Text("sign in7", style: AppTextStyle.bold14).tr(),
 
                   CustomTextField(
-                    hintText: "Enter your password",
+                    hintText: "sign in8".tr(),
                     textController: passController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Password is required";
+                        return "sign in9".tr();
                       }
                       if (value.length < 6) {
-                        return "Password must be at least 6 characters";
+                        return "sign in10".tr();
                       }
                       return null;
                     },
@@ -113,7 +111,7 @@ class _SignInState extends State<SignIn> {
                         _showAlertDialog(context);
                       },
                       textWidget: Text(
-                        "Sign In",
+                        "sign in14".tr(),
                         style: AppTextStyle.bold16.copyWith(
                           color: AppColors.white,
                         ),
@@ -144,12 +142,12 @@ class _SignInState extends State<SignIn> {
       context: context,
       builder: (context) => CustomAlertDialog(
         title: Text(
-          "Welcome!",
+          "sign in11".tr(),
           style: AppTextStyle.bold22.copyWith(color: AppColors.green),
           textAlign: TextAlign.center,
         ),
         content: Text(
-          "Account sign-in successfully",
+          "sign in12".tr(),
           style: AppTextStyle.bold18.copyWith(color: AppColors.grey),
           textAlign: TextAlign.center,
         ),
@@ -160,7 +158,7 @@ class _SignInState extends State<SignIn> {
           );
         },
         buttonText: Text(
-          "close",
+          "sign in13".tr(),
           style: AppTextStyle.regular16.copyWith(color: AppColors.white),
         ),
         buttonBachground: AppColors.green,

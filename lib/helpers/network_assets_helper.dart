@@ -13,8 +13,8 @@ abstract class NetworkAssetsHelper {
   ];
 
   static List<String> getImageText = [
-    "Premium Mouse",
-    "Premium Mobile Phone",
-    "Premium Smart Watch",
+    "page view1",
+    "page view2",
+    "page view3",
   ];
 }

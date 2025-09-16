@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/helpers/local_assets_helper.dart';
 import 'package:shop_app/helpers/uri_helper.dart';
@@ -47,7 +48,7 @@ class ItemsList extends StatelessWidget {
                       ),
                     ),
                   ),
-                 SnackbarIcon(itemName: UriHelper.imagesText[index],)
+                  SnackbarIcon(itemName: UriHelper.imagesText[index].tr()),
                 ],
               ),
 
@@ -56,7 +57,7 @@ class ItemsList extends StatelessWidget {
                 child: Text(
                   UriHelper.imagesText[index],
                   style: AppTextStyle.bold20,
-                ),
+                ).tr(),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -65,7 +66,7 @@ class ItemsList extends StatelessWidget {
                   style: AppTextStyle.bold18.copyWith(
                     color: AppColors.deepPurple,
                   ),
-                ),
+                ).tr(),
               ),
             ],
           ),

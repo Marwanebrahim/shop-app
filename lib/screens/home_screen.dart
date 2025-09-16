@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/helpers/network_assets_helper.dart';
 import 'package:shop_app/styles/app_colors.dart';
@@ -22,9 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Our Products",
+          "app bar",
           style: AppTextStyle.bold22.copyWith(color: AppColors.white),
-        ),
+        ).tr(),
         automaticallyImplyLeading: false,
         flexibleSpace: _getFlexibleSpace(),
       ),
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         children: [
-          Center(child: Text("Featured Products", style: AppTextStyle.bold22)),
+          Center(child: Text("home page1", style: AppTextStyle.bold22).tr()),
           SizedBox(height: 15),
           Container(
             clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -58,14 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(height: 15),
 
-          Center(
-            child: Text("Shop Our Collection", style: AppTextStyle.bold22),
-          ),
+          Center(child: Text("home page2", style: AppTextStyle.bold22).tr()),
           SizedBox(height: 10),
           ItemsList(),
-          Center(child: Text("Hot Offers 🔥", style: AppTextStyle.bold22)),
-          SizedBox(height: 10,),
-          HotOffersListView()
+          Center(child: Text("home page3", style: AppTextStyle.bold22).tr()),
+          SizedBox(height: 10),
+          HotOffersListView(),
         ],
       ),
     );

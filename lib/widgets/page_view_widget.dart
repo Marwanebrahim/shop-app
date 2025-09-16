@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/helpers/network_assets_helper.dart';
 import 'package:shop_app/styles/app_colors.dart';
@@ -37,7 +38,7 @@ class _PageViewWidgetState extends State<PageViewWidget> {
               child: Text(
                 NetworkAssetsHelper.getImageText[index],
                 style: AppTextStyle.bold20.copyWith(color: AppColors.white),
-              ),
+              ).tr(),
             ),
           ],
         );
